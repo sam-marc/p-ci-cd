@@ -37,24 +37,19 @@ pipeline {
         }
         }
     }
-    post {
+   post {
     success {
         echo 'Pipeline succeeded! Send success notification.'
-        script (
-            mail to: 'sam883marc@gmail.com',
-                 subject: "success: ${currentBuild.fullDisplayName}",
-                 body: "Build was successful. Congratulations!"
-          )
+        script {
+           mail to: 'sam883marc@gmail.com', subject: 'success', body: 'Build was successful. Congratulations!'
         }
     }
     failure {
         echo 'Pipeline failure! Send failure notification.'
-        script (
-            mail to: 'sam883marc@gmail.com',
-                 subject: "failed: ${currentBuild.fullDisplayName}",
-                 body: "Something went wrong. Please check the build logs."
-          )
+        script {
+            mail to: 'sam883marc@gmail.com', subject: 'failed', body: 'Something went wrong. Please check the build logs'
         }
     }
 }
+
 
