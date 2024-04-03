@@ -38,14 +38,21 @@ pipeline {
         }
     }
     post {
-        always {
-            // Send email notification on completion
-            emailext (
-                body: "Check console output at $BUILD_URL to see results,",           
-                subject: "Jenkins Build ${currentBuild.currentResult} jenkins-ci-cd",
-                to: "sam883marc@gmail.com, marcussamuel883@gmail.com", 
-                mimeType: 'text/html'
-            )
+    success {
+        echo 'Pipeline succeeded! Send success notification.'
+        script {
+            mail to: 'sam883marc@gmail.com',
+                 subject: "success: ${currentBuild.fullDisplayName}",
+                 body: "Build was successful. Congratulations!"
+        }
+    }
+    failure {
+        echo 'Pipeline failure! Send failure notification.'
+        script {
+            mail to: 'sam883marc@gmail.com',
+                 subject: "failed: ${currentBuild.fullDisplayName}",
+                 body: "Something went wrong. Please check the build logs."
         }
     }
 }
+
