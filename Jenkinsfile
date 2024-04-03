@@ -40,18 +40,20 @@ pipeline {
     post {
     success {
         echo 'Pipeline succeeded! Send success notification.'
-        script {
+        script (
             mail to: 'sam883marc@gmail.com',
                  subject: "success: ${currentBuild.fullDisplayName}",
                  body: "Build was successful. Congratulations!"
+          )
         }
     }
     failure {
         echo 'Pipeline failure! Send failure notification.'
-        script {
+        script (
             mail to: 'sam883marc@gmail.com',
                  subject: "failed: ${currentBuild.fullDisplayName}",
                  body: "Something went wrong. Please check the build logs."
+          )
         }
     }
 }
