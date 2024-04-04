@@ -26,10 +26,9 @@
 <input type="radio" name="r3" value="prod" />product
 <br />
 </label>
-<input type="radio" name="r1" value="div" />division
+<input type="radio" name="r4" value="div" />division
 <br />
 </label>
-<label>
 </div>
 <input type="submit" value="submit" />
 </form>
