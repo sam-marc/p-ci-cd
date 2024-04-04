@@ -26,7 +26,7 @@
 <input type="radio" name="r3" value="prod" />product
 <br />
 </label>
-<input type="radio" name="r1" value="add" />addition
+<input type="radio" name="r1" value="div" />division
 <br />
 </label>
 <label>
