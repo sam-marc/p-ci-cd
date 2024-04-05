@@ -7,10 +7,6 @@ pipeline {
       }
       stages {
         stage('Checkout') {
-            steps {
-                git 'https://github.com/sam-marc/p-ci-cd.git'
-            }
-        }
       steps {
         echo 'Building the application'
         //Define build steps here
