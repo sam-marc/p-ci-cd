@@ -5,6 +5,12 @@ pipeline {
       agent {
         label 'node1'
       }
+      stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/sam-marc/javawebcal.git'
+            }
+        }
       steps {
         echo 'Building the application'
         //Define build steps here
